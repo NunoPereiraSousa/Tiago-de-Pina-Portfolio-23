@@ -1,0 +1,72 @@
+%image-cover {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+%position-fixed {
+  left: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+%layout-margin {
+  padding: 0 8rem;
+}
+
+%max-width {
+  margin: auto;
+  max-width: 192rem;
+}
+
+/* Flexbox mixins */
+
+%column-direction {
+  display: flex;
+  flex-direction: column;
+}
+
+%column-direction-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+%column-direction-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+%space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+%center-between {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+%align-center {
+  align-items: center;
+  display: flex;
+}
+
+%justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+%flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,21 @@
+.last_update {
+  padding-left: 37.8rem;
+  margin: 14rem 0 6rem;
+
+  @include media("<=tablet") {
+    padding-left: 20rem;
+  }
+
+  @include media("<phone") {
+    padding-left: 2rem;
+  }
+}
+
+.last_update_wrapper {
+  @extend %max-width;
+
+  .paragraph {
+    color: $color-pink;
+    font-weight: 500;
+  }
+}

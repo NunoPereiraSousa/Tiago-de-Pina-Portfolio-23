@@ -1,0 +1,31 @@
+.navigation {
+  @extend %position-fixed;
+
+  height: fit-content;
+  mix-blend-mode: difference;
+  padding: 3rem 8rem;
+  z-index: z("desktop-navigation");
+}
+
+.navigation_wrapper {
+  @extend %max-width;
+  @extend %space-between;
+
+  // background: rgba($color-black, 0.25);
+  // backdrop-filter: blur(7.3px);
+  // -webkit-backdrop-filter: blur(7.3px);
+
+  // padding: 2rem;
+  // border-radius: 0.5rem;
+}
+
+.navigation_logo {
+}
+
+.navigation_links {
+  display: flex;
+  gap: 6rem;
+}
+
+.navigation_link {
+}

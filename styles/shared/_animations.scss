@@ -1,0 +1,32 @@
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1.05);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes color-switcher {
+  0%,
+  100% {
+    color: $color-white;
+  }
+
+  50% {
+    color: $color-pink;
+  }
+}
+
+@keyframes background-color-switcher {
+  0%,
+  100% {
+    background-color: $color-white;
+  }
+
+  50% {
+    background-color: $color-pink;
+  }
+}

@@ -1,0 +1,118 @@
+.hero_works {
+  @extend %layout-margin;
+
+  padding-top: 17rem;
+
+  @include media("<=tablet") {
+    padding: 20rem 2rem 14rem;
+    width: 100%;
+  }
+}
+
+.hero_works_wrapper {
+  @extend %max-width;
+}
+
+.hero_works_content {
+  @extend %space-between;
+
+  align-items: flex-end;
+
+  @include media("<=tablet") {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.hero_works_headline {
+  max-width: 70.7rem;
+
+  strong {
+    color: $color-pink;
+    font-weight: 500;
+
+    @include media("<phone") {
+      font-weight: 400;
+    }
+  }
+
+  @include media("<phone") {
+    width: 100%;
+  }
+}
+
+.hero_works_info {
+}
+
+.hero_works_description {
+  max-width: 39.3rem;
+  margin-bottom: 4.5rem;
+
+  strong {
+    color: $color-pink;
+    font-weight: 500;
+  }
+}
+
+.hero_works_arrows {
+  display: flex;
+  gap: 4rem;
+
+  background-color: transparent;
+  border: 0.2rem solid $color-white;
+  border-radius: 9.2rem;
+  height: fit-content;
+  margin-bottom: 4.5rem;
+  padding: 3rem 4rem;
+  width: fit-content;
+
+  @include media("<=tablet") {
+    display: none;
+  }
+}
+
+.hero_works_arrow_wrapper {
+  height: 2.8rem;
+  resize: both;
+  width: 2.6rem;
+}
+
+.hero_works_arrow {
+  width: 95%;
+  height: 95%;
+}
+
+.hero_works_figure {
+  height: 18.5rem;
+  position: relative;
+  width: 100%;
+
+  @include media("<phone") {
+    height: 16rem;
+  }
+}
+
+.hero_works_image {
+  @extend %image-cover;
+}
+
+.projects {
+  margin-top: 12rem;
+
+  @include media("<=tablet") {
+    margin-top: 0;
+  }
+}
+
+.projects_wrapper {
+  @extend %max-width;
+  @extend %layout-margin;
+
+  @include media("<=tablet") {
+    padding: 0 2rem;
+  }
+}
+
+.projects_grid {
+}

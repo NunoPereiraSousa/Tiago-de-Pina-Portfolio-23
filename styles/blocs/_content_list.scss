@@ -1,0 +1,173 @@
+.content {
+  padding: 0 8rem 0 37.8rem;
+
+  @include media("<=tablet") {
+    padding: 0 2rem 0 20rem;
+  }
+
+  @include media("<phone") {
+    padding: 0 2rem;
+  }
+
+  &[data-router="credits"] {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &:first-of-type {
+    padding-top: 17rem;
+
+    @include media("<=tablet") {
+      padding-top: 20rem;
+    }
+  }
+
+  &:not(:first-of-type) {
+    padding-top: 6.6rem;
+
+    @include media("<phone") {
+      padding-top: 4rem;
+    }
+  }
+
+  &.projects {
+    margin-top: 0;
+  }
+}
+
+.content_wrapper {
+  @extend %max-width;
+}
+
+.content_grid {
+  @extend %column-direction;
+
+  gap: 6.6rem;
+  max-width: 74rem;
+
+  @include media("<phone") {
+    gap: 4rem;
+  }
+}
+
+.content_socials_wrapper {
+  display: flex;
+  gap: 3rem;
+}
+
+.content_item {
+}
+
+.content_headline {
+  margin-bottom: 1rem;
+}
+
+.content_description {
+}
+
+.content_list {
+  @extend %column-direction;
+
+  gap: 0.3rem;
+}
+
+.content_list_item {
+}
+
+.content_figure {
+  height: 74.1rem;
+  position: fixed;
+  right: 8rem;
+  top: 17rem;
+  width: 15.8rem;
+
+  @include media("<=tablet") {
+    display: none;
+  }
+}
+
+.content_image {
+  @extend %image-cover;
+
+  border-radius: 0.2rem;
+}
+
+.content_update {
+  color: $color-pink;
+  font-weight: 500;
+  margin: 20.2rem 0 7rem;
+}
+
+/* CONTENT PROJECTS LIST */
+.content_projects {
+  @extend %column-direction;
+
+  gap: 2rem;
+}
+
+.content_project {
+  padding-bottom: 2rem;
+  position: relative;
+  max-width: 57.4rem;
+}
+
+.content_project_headlines {
+  @extend %space-between;
+}
+
+.content_project_name {
+  text-transform: capitalize;
+}
+
+.content_project_actions {
+  @extend %align-center;
+
+  gap: 7rem;
+}
+
+.content_project_year {
+}
+
+.content_project_line {
+  background-color: $color-white;
+  display: block;
+  height: 0.1rem;
+  width: 100%;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.content_project_dropdown {
+  @extend %column-direction;
+
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.content_project_figure {
+  height: 60rem;
+  position: relative;
+  width: 57.4rem;
+
+  @include media("<phone") {
+    height: 36.4rem;
+    width: 100%;
+  }
+}
+
+.content_project_image {
+  @extend %image-cover;
+}
+
+.content_project_description {
+}
+
+.content_project_url {
+  margin-left: auto;
+  text-decoration: underline $color-white;
+}
+
+.content_project_line {
+}

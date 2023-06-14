@@ -1,0 +1,169 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"headline_1": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nostrud eiusmod dolore sit consequat. Sint ut pariatur adipisicing sint labore id ex adipisicing culpa labore labore aute sunt tempor. Anim dolor veniam veniam nostrud."
+						}
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+					"width": 12288,
+					"height": 16384
+				},
+				"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+				"width": 12288,
+				"height": 16384,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"headline_2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sit pariatur veniam minim mollit aute sint. Anim exercitation eiusmod consequat reprehenderit nostrud duis ex velit velit exercitation consectetur id eu. Eiusmod aliqua adipisicing cillum culpa laborum do."
+						}
+					}
+				]
+			},
+			"headline_3": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla fugiat officia exercitation qui anim quis ea. Duis eiusmod Lorem velit consectetur ut ut. Sunt proident ut fugiat fugiat eu nostrud ea."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ullamco fugiat sit eiusmod voluptate. Amet nisi quis ad ut anim mollit nulla dolore."
+						}
+					}
+				]
+			},
+			"headline_4": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint exercitation sunt proident veniam amet ex. Consequat fugiat ut consectetur ex magna tempor est excepteur sit aute elit. Quis cillum sunt nisi commodo elit ut laborum eu."
+						}
+					}
+				]
+			},
+			"description_2": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cupidatat qui veniam mollit adipisicing voluptate labore minim fugiat ea. Eiusmod adipisicing in nisi nulla ad ipsum aute occaecat eu cillum nulla eiusmod nostrud nostrud eu."
+						}
+					}
+				]
+			},
+			"image_2": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+					"width": 3168,
+					"height": 4752
+				},
+				"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+				"width": 3168,
+				"height": 4752,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
+			},
+			"image_3": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+					"width": 3456,
+					"height": 3456
+				},
+				"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+				"width": 3456,
+				"height": 3456,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
+			},
+			"button_label": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt dolore aute fugiat nulla cillum sint reprehenderit. Laborum adipisicing nostrud do."
+						}
+					}
+				]
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"headline_5": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do minim voluptate laboris voluptate dolor reprehenderit sit labore. Sint minim culpa sit amet ut exercitation non laborum culpa."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -1,0 +1,25 @@
+@import "./shared/_reset";
+@import "./shared/_variables";
+@import "./shared/_responsive";
+@import "./shared/_base";
+@import "./shared/_animations";
+
+@import "./utils/_functions";
+@import "./utils/_mixins";
+
+@import "./typography/_headings";
+@import "./typography/_paragraph";
+@import "./typography/_classes";
+
+@import "./components/_preloader";
+@import "./components/_navigation";
+@import "./components/_footer";
+@import "./components/_last_update";
+@import "./components/_project";
+
+@import "./blocs/_marquee";
+@import "./blocs/_content_list";
+
+@import "./pages/_homepage";
+@import "./pages/_404";
+@import "./pages/_works";

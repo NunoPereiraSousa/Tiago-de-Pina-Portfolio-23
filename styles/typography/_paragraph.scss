@@ -1,0 +1,11 @@
+%paragraph-16 {
+  font-family: $font-body;
+  font-style: normal;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 160%;
+
+  @include media("<phone") {
+    font-size: 1.4rem;
+  }
+}

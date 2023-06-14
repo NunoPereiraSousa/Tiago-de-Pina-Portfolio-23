@@ -1,0 +1,30 @@
+.error {
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.error_wrapper {
+  @extend %column-direction-center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.error_headline {
+  color: $color-pink;
+  white-space: nowrap;
+}
+
+.error_description {
+  margin: 22rem auto 7rem;
+  max-width: 48.8rem;
+  text-align: center;
+}
+
+.error_button_wrapper {
+}
+
+.error_button {
+  animation: color-switcher step-start infinite 1s;
+}

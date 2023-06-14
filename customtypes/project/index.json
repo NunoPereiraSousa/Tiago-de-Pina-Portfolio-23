@@ -1,0 +1,94 @@
+{
+  "id": "project",
+  "label": "Project",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "project_name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Project Name",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "project_year": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Project Year",
+          "placeholder": "This text is only used on the about page",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "project_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Project Description",
+          "placeholder": "This text is only used on the about page",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "content": {
+        "type": "Group",
+        "config": {
+          "label": "Content",
+          "fields": {
+            "project_headline": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Project Headline",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "project_description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Project Description",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            }
+          }
+        }
+      },
+      "project_button_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Project Button Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "project_url": {
+        "type": "Link",
+        "config": { "label": "Project URL", "placeholder": "", "select": null }
+      },
+      "project_image": {
+        "type": "Image",
+        "config": {
+          "label": "Project Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "project_banner": {
+        "type": "Image",
+        "config": {
+          "label": "Project Banner",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

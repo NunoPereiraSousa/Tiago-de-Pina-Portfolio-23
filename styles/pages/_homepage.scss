@@ -1,0 +1,190 @@
+.hero {
+  @extend %layout-margin;
+  // @extend %align-center;
+
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+
+  @include media("<=tablet") {
+    height: auto;
+    overflow: auto;
+
+    padding: 20rem 2rem 14rem;
+  }
+}
+
+.hero_wrapper {
+  @extend %max-width;
+  @extend %column-direction;
+
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.hero_grid {
+  margin-bottom: -1rem;
+}
+
+.hero_line {
+  display: flex;
+  justify-content: space-between;
+
+  @include media("<=tablet") {
+    flex-direction: column;
+  }
+
+  &:first-child {
+    @include media("<=tablet") {
+      align-items: flex-start;
+    }
+
+    .hero_headline:first-child .heading {
+      font-weight: 100;
+    }
+
+    .hero_figure:first-of-type {
+      width: 26rem;
+    }
+
+    .hero_figure:last-child {
+      width: 14rem;
+
+      @include media("<=tablet") {
+        display: none;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    .hero_headline {
+      strong {
+        color: $color-pink;
+        font-weight: 400;
+      }
+    }
+
+    .hero_figure {
+      width: 24.6rem;
+    }
+  }
+
+  &:last-child {
+    @include media("<=tablet") {
+      justify-content: flex-start;
+    }
+  }
+
+  .hero_description {
+    max-width: 45.9rem;
+
+    @include media("<=tablet") {
+      margin-bottom: 2.2rem;
+    }
+  }
+
+  .hero_description:last-child {
+    max-width: 29.9rem;
+  }
+}
+
+.hero_button {
+  animation: background-color-switcher step-start infinite 1s;
+  align-self: end;
+  background-color: $color-white;
+  border-radius: 0.4rem;
+  color: $color-black;
+  display: block;
+  font-family: $font-heading;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1;
+  height: fit-content;
+  margin-bottom: 5rem;
+  padding: 1.2rem 2rem 0.4rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: fit-content;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  @include media("<=tablet") {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+  }
+}
+
+// .hero_arrows {
+//   display: flex;
+//   gap: 4rem;
+
+//   background-color: transparent;
+//   border: 0.4rem solid $color-white;
+//   border-radius: 9.2rem;
+//   height: fit-content;
+//   margin-bottom: 3rem;
+//   padding: 3rem 4rem;
+//   width: fit-content;
+
+//   @include media("<=tablet") {
+//     display: none;
+//   }
+// }
+
+// .hero_arrow_wrapper {
+//   height: 7.6rem;
+//   resize: both;
+//   width: 8rem;
+// }
+
+// .hero_arrow {
+//   width: 95%;
+//   height: 95%;
+// }
+
+.hero_headline {
+  line-height: 0.9 !important;
+  white-space: nowrap;
+
+  @include media("<=tablet") {
+    white-space: normal;
+  }
+}
+
+.hero_figure {
+  height: 15.4rem;
+  margin-top: 1.5rem;
+  position: relative;
+
+  @include media("<=tablet") {
+    margin-bottom: 2rem;
+  }
+
+  @include media("<phone") {
+    width: 100%;
+  }
+}
+
+.hero_image {
+  @extend %image-cover;
+
+  border-radius: 0.2rem;
+}
+
+.hero_description {
+  // text-align: justify;
+  margin-top: 1rem;
+  width: 100%;
+
+  @include media("<phone") {
+    width: 100%;
+  }
+
+  strong {
+    color: $color-pink;
+  }
+}

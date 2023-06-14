@@ -1,0 +1,25 @@
+.paragraph {
+  @extend %paragraph-16;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.heading {
+  &.xxl {
+    @extend %heading-220;
+  }
+  &.xl {
+    @extend %heading-120;
+  }
+  &.lg {
+    @extend %heading-36;
+  }
+  &.md {
+    @extend %heading-16;
+  }
+  &.sm {
+    @extend %heading-16;
+  }
+}

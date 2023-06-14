@@ -1,0 +1,94 @@
+.preloader {
+  @extend %position-fixed;
+
+  background-color: $color-black;
+  height: 100vh;
+  z-index: z("preloader");
+  width: 100vw;
+}
+
+.preloader_wrapper {
+  @extend %max-width;
+  @extend %flex-center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.preloader_container {
+  @extend %column-direction-center;
+
+  gap: 6.6rem;
+  max-width: 74.7rem;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader_description {
+  text-align: center;
+}
+
+.preloader_figure {
+  height: 24rem;
+  position: relative;
+  width: 40rem;
+}
+
+.preloader_image {
+  @extend %image-cover;
+
+  border-radius: 0.4rem;
+}
+
+.preloader_indicator {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  max-height: 2.8rem;
+  overflow: hidden;
+}
+
+.preloader_counter_wrapper {
+  @extend %center-between;
+
+  gap: 3rem;
+  width: 100%;
+}
+
+.preloader_counter_init {
+  display: flex;
+  min-width: 5.4rem;
+}
+
+.preloader_counter_number {
+}
+
+.preloader_counter_bar {
+  background-color: $color-white;
+  display: block;
+  height: 0.1rem;
+  width: 100%;
+
+  transform-origin: left bottom;
+  //   transform: scaleX(0);
+}
+
+.preloader_counter_end {
+  min-width: 5.4rem;
+  text-align: right;
+}
+
+.preloader_button_wrapper {
+  @extend %justify-center;
+}
+
+.preloader_button {
+  animation: color-switcher step-start infinite 1s;
+  cursor: pointer;
+
+  // &:hover {
+  //   color: $color-pink;
+  // }
+}

@@ -1,0 +1,10 @@
+$breakpoints: (
+  "phone": 768px,
+  "tablet": 1024px,
+  "small-laptop": 1280px,
+  "laptop": 1440px,
+  "desktop": 1920px,
+  "4k": 3000px,
+) !default;
+
+@import "include-media";

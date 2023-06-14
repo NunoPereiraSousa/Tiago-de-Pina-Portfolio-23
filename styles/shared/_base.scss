@@ -1,0 +1,121 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 1920 * 10);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  user-select: none;
+  overscroll-behavior: none;
+
+  @include media("<=tablet") {
+    font-size: 10px;
+    overflow-x: hidden;
+  }
+}
+
+body {
+  @extend %paragraph-16;
+
+  background: $color-black;
+  color: $color-white;
+}
+
+input {
+  @extend %paragraph-16;
+
+  color: $color-white !important;
+  font-family: $font-body;
+}
+
+::placeholder {
+  @extend %paragraph-16;
+
+  color: $color-white !important;
+  font-family: $font-body;
+}
+
+.line-parent {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.font-semibold {
+}
+
+.line-parent,
+.font-semibold {
+  overflow: hidden;
+  height: inherit;
+}
+
+.line-child {
+  overflow: hidden;
+  height: inherit;
+  display: inline-block;
+  vertical-align: inherit;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+.grain {
+  @extend %position-fixed;
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: z("grain");
+
+  &::after {
+    content: "";
+    animation: grain 8s steps(10) infinite;
+    background-image: url("../../public/grain.png");
+    opacity: 0.05;
+    height: 300%;
+    width: 300%;
+    position: fixed;
+    top: -100%;
+    left: -50%;
+    overflow: hidden;
+  }
+}
+
+// .page {
+//   opacity: 0;
+// }

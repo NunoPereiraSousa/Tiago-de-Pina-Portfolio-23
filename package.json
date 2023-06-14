@@ -3,16 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"npm:next:dev\" \"npm:slicemachine\"",
+    "next:dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@prismicio/client": "^7.0.1",
+    "@prismicio/next": "^1.2.1",
+    "@prismicio/react": "^2.6.2",
+    "clsx": "^1.2.1",
+    "concurrently": "^8.1.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "gsap": "^3.11.5",
+    "include-media": "^2.0.0",
     "next": "13.4.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-locomotive-scroll": "^0.2.2",
+    "react-transition-group": "^4.4.5",
+    "sass": "^1.62.1"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "^0.2.1",
+    "slice-machine-ui": "^1.1.1"
   }
 }
