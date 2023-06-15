@@ -1,0 +1,27 @@
+{
+  "id": "navigation_social_media_links",
+  "type": "SharedSlice",
+  "name": "NavigationSocialMediaLinks",
+  "description": "NavigationSocialMediaLinks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "social_media": {
+          "type": "Link",
+          "config": {
+            "label": "Social Media",
+            "select": "document",
+            "customtypes": ["social_media", "contacts"]
+          }
+        }
+      }
+    }
+  ]
+}

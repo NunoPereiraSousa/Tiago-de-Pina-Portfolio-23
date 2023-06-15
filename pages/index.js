@@ -120,7 +120,9 @@ export default function Page({
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", {
+    fetchLinks: "social_media.name, social_media.link, contacts.name",
+  });
   const page = await client.getSingle("homepage");
   const preloader = await client.getSingle("preloader");
   /* 

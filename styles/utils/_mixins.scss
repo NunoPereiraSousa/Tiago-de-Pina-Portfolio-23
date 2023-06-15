@@ -70,3 +70,48 @@
   display: flex;
   justify-content: center;
 }
+
+@mixin double-line-animation(
+  $rotation-amount,
+  $hover-translateY-amount,
+  $translateY-amount,
+  $font-size-percentage,
+  $font-family,
+  $font-weight,
+  $final-state-yPosition
+) {
+  cursor: pointer;
+  line-height: normal;
+  overflow: hidden;
+
+  .span-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .first-span {
+    display: block;
+    transition: all 0.55s $transition;
+  }
+
+  .second-span {
+    display: block;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-size: $font-size-percentage;
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    transform: translateY($translateY-amount) rotate($rotation-amount);
+    transition: all 0.55s $transition;
+  }
+
+  &:hover .first-span {
+    transform: translateY($hover-translateY-amount) rotate($rotation-amount);
+  }
+
+  &:hover .second-span {
+    transform: translateY($final-state-yPosition) rotate(0);
+  }
+}

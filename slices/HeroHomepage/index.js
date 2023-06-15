@@ -1,3 +1,4 @@
+import DoubleText from "@/components/Animations/DoubleText";
 import Figure from "@/components/Elements/Figure";
 import Links from "@/components/Typography/Links";
 import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
@@ -47,11 +48,11 @@ const HeroHomepage = ({ slice }) => {
               <PrismicRichText field={slice?.primary.headline_3} />
             </div>
 
-            <Links
-              className="hero_button"
-              isEmail={true}
-              text={slice?.primary.button_label}
-            />
+            <div className="hero_button">
+              <DoubleText>
+                <Links isEmail={true} text={slice?.primary.button_label} />
+              </DoubleText>
+            </div>
           </div>
           <div className="hero_line">
             <div className="hero_headline">

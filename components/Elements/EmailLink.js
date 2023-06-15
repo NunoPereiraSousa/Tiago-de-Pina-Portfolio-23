@@ -3,11 +3,10 @@
 import { PrismicLink, PrismicText } from "@prismicio/react";
 import gsap from "gsap-trial";
 import { Power2 } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { SplitText } from "gsap-trial/dist/SplitText";
 import { useRef, useLayoutEffect } from "react";
 
-export default function Links({ className, url, text }) {
+export default function EmailLink({ text, showFullEmail = true }) {
   const element = useRef(null);
 
   useLayoutEffect(() => {
@@ -40,8 +39,12 @@ export default function Links({ className, url, text }) {
   }, []);
 
   return (
-    <PrismicLink className={className} ref={element} href={url}>
-      <PrismicText field={text} />
+    <PrismicLink
+      className="navigation_social_media_link"
+      ref={element}
+      href={`mailto:${text}`}
+    >
+      {showFullEmail ? <PrismicText field={text} /> : "Email"}
     </PrismicLink>
   );
 }

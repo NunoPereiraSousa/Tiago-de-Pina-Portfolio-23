@@ -71,6 +71,17 @@ export type _404Document<Lang extends string = string> =
 /** Content for Contacts documents */
 interface ContactsDocumentData {
   /**
+   * Headline field in *Contacts*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contacts.headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  headline: prismic.RichTextField;
+  /**
    * Name field in *Contacts*
    *
    * - **Field Type**: Rich Text
@@ -215,7 +226,9 @@ interface NavigationDocumentData {
  * Slice for *Navigation → Slice Zone*
  *
  */
-type NavigationDocumentDataSlicesSlice = NavigationItemSlice;
+type NavigationDocumentDataSlicesSlice =
+  | NavigationItemSlice
+  | NavigationSocialMediaLinksSlice;
 /**
  * Navigation document from Prismic
  *
@@ -998,6 +1011,54 @@ export type NavigationItemSlice = prismic.SharedSlice<
   NavigationItemSliceVariation
 >;
 /**
+ * Item in NavigationSocialMediaLinks → Items
+ *
+ */
+export interface NavigationSocialMediaLinksSliceDefaultItem {
+  /**
+   * Social Media field in *NavigationSocialMediaLinks → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation_social_media_links.items[].social_media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  social_media: prismic.ContentRelationshipField<"social_media" | "contacts">;
+}
+/**
+ * Default variation for NavigationSocialMediaLinks Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavigationSocialMediaLinksSliceDefault =
+  prismic.SharedSliceVariation<
+    "default",
+    Record<string, never>,
+    Simplify<NavigationSocialMediaLinksSliceDefaultItem>
+  >;
+/**
+ * Slice variation for *NavigationSocialMediaLinks*
+ *
+ */
+type NavigationSocialMediaLinksSliceVariation =
+  NavigationSocialMediaLinksSliceDefault;
+/**
+ * NavigationSocialMediaLinks Shared Slice
+ *
+ * - **API ID**: `navigation_social_media_links`
+ * - **Description**: `NavigationSocialMediaLinks`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavigationSocialMediaLinksSlice = prismic.SharedSlice<
+  "navigation_social_media_links",
+  NavigationSocialMediaLinksSliceVariation
+>;
+/**
  * Item in Project → Items
  *
  */
@@ -1273,6 +1334,10 @@ declare module "@prismicio/client" {
       NavigationItemSliceDefault,
       NavigationItemSliceVariation,
       NavigationItemSlice,
+      NavigationSocialMediaLinksSliceDefaultItem,
+      NavigationSocialMediaLinksSliceDefault,
+      NavigationSocialMediaLinksSliceVariation,
+      NavigationSocialMediaLinksSlice,
       ProjectSliceDefaultItem,
       ProjectSliceDefault,
       ProjectSliceVariation,

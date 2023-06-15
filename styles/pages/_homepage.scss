@@ -116,35 +116,17 @@
     align-self: flex-start;
     margin-bottom: 2rem;
   }
+
+  @include double-line-animation(
+    25deg,
+    -180%,
+    180%,
+    100%,
+    $font-heading,
+    500,
+    0
+  );
 }
-
-// .hero_arrows {
-//   display: flex;
-//   gap: 4rem;
-
-//   background-color: transparent;
-//   border: 0.4rem solid $color-white;
-//   border-radius: 9.2rem;
-//   height: fit-content;
-//   margin-bottom: 3rem;
-//   padding: 3rem 4rem;
-//   width: fit-content;
-
-//   @include media("<=tablet") {
-//     display: none;
-//   }
-// }
-
-// .hero_arrow_wrapper {
-//   height: 7.6rem;
-//   resize: both;
-//   width: 8rem;
-// }
-
-// .hero_arrow {
-//   width: 95%;
-//   height: 95%;
-// }
 
 .hero_headline {
   line-height: 0.9 !important;

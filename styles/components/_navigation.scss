@@ -5,18 +5,35 @@
   mix-blend-mode: difference;
   padding: 3rem 8rem;
   z-index: z("desktop-navigation");
+
+  &.desktop-navigation {
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+
+  &.mobile-navigation {
+    background-color: $color-black;
+    height: 100vh;
+    mix-blend-mode: normal;
+    padding: 8rem 2rem 4rem;
+    width: 100vw;
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: z("mobile-navigation");
+
+    @include media("<=tablet") {
+      display: flex;
+    }
+  }
 }
 
 .navigation_wrapper {
   @extend %max-width;
   @extend %space-between;
-
-  // background: rgba($color-black, 0.25);
-  // backdrop-filter: blur(7.3px);
-  // -webkit-backdrop-filter: blur(7.3px);
-
-  // padding: 2rem;
-  // border-radius: 0.5rem;
 }
 
 .navigation_logo {
@@ -27,5 +44,103 @@
   gap: 6rem;
 }
 
+.text-reveal-navigation {
+  @include double-line-animation(25deg, -180%, 180%, 100%, $font-body, 500, 0);
+}
+
+.navigation_logo {
+}
+
 .navigation_link {
+}
+
+/* MOBILE NAVIGATION */
+
+.navigation_actions {
+  @extend %center-between;
+
+  height: fit-content;
+  width: 100%;
+}
+
+.navigation_cross {
+  svg {
+    display: block;
+  }
+}
+
+.navigation_hamburger {
+  cursor: pointer;
+  height: 0.8rem;
+  position: relative;
+  width: 2rem;
+}
+
+.navigation_hamburger_lines {
+  background-color: $color-white;
+  display: block;
+  height: 0.1rem;
+  left: 0;
+  position: absolute;
+  width: 2rem;
+
+  &:first-child {
+    top: 0;
+  }
+
+  &:last-child {
+    bottom: 0;
+  }
+}
+
+.navigation_mobile_links {
+  @extend %column-direction;
+
+  .navigation_link {
+    @extend %heading-220;
+
+    display: block;
+    margin: auto;
+    text-align: center;
+
+    &.active {
+      color: $color-pink;
+    }
+  }
+}
+
+.navigation_link_wrapper {
+  position: relative;
+  padding: 2rem 0;
+
+  &:not(&:last-child) .navigation_link_border:last-child {
+    display: none;
+  }
+}
+
+.navigation_link_border {
+  background-color: $color-white;
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+
+  &:first-child {
+    top: 0;
+  }
+
+  &:last-child {
+    bottom: 0;
+  }
+}
+
+.navigation_socials {
+  @extend %center-between;
+}
+
+.navigation_social_media_link {
+  @include media("<=tablet") {
+    text-transform: uppercase;
+  }
 }

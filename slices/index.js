@@ -8,6 +8,9 @@ export const components = {
   hero_works: dynamic(() => import("./HeroWorks")),
   marquee: dynamic(() => import("./Marquee")),
   navigation_item: dynamic(() => import("./NavigationItem")),
+  navigation_social_media_links: dynamic(() =>
+    import("./NavigationSocialMediaLinks")
+  ),
   project: dynamic(() => import("./Project")),
   resume: dynamic(() => import("./ContentList")),
 };

@@ -24,7 +24,7 @@ export default function Figure({ figureClassName, imageClassName, image }) {
           stagger: 0.3,
           scrollTrigger: {
             trigger: figureEl.current,
-            markers: true,
+            // markers: true,
           },
           duration: 1.5,
           delay: 0.3,

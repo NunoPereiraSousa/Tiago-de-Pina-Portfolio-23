@@ -94,7 +94,6 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   const onPageEnter = (node) => {
-    console.log(node);
     gsap.fromTo(
       "#sticky",
       {
@@ -107,12 +106,12 @@ export default function App({ Component, pageProps }) {
         autoAlpha: 1,
         duration: 1,
         ease: "expo.out",
+        delay: 0.5,
       }
     );
   };
 
   const onPageExit = (node) => {
-    console.log(node);
     gsap.fromTo(
       "#sticky",
       {

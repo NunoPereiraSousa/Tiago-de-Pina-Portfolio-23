@@ -24,7 +24,10 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": { "navigation_item": { "type": "SharedSlice" } }
+          "choices": {
+            "navigation_item": { "type": "SharedSlice" },
+            "navigation_social_media_links": { "type": "SharedSlice" }
+          }
         }
       }
     }

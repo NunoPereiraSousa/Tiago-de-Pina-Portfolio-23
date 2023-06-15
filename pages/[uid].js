@@ -113,7 +113,10 @@ export default function Page({
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const navigation = await client.getSingle("navigation");
+  const navigation = await client.getSingle("navigation", {
+    fetchLinks:
+      "social_media.name, social_media.link, contacts.name, contacts.link",
+  });
   const page = await client.getByUID("page", params.uid, {
     fetchLinks:
       "contacts.name, contacts.link, social_media.name, social_media.link, project.project_name, project.project_year, project.project_description, project.project_url, project.project_image",

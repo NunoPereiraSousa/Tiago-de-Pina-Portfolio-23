@@ -4,6 +4,7 @@ import { Paragraph } from "@/components/Typography/Paragraph";
 import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
 import { Router, useRouter } from "next/router";
 import Figure from "@/components/Elements/Figure";
+import EmailLink from "@/components/Elements/EmailLink";
 
 /**
  * @typedef {import("@prismicio/client").Content.ResumeSlice} ResumeSlice
@@ -26,9 +27,17 @@ const Resume = ({ slice }) => {
           {slice.variation === "withEmailAndLocation" && (
             <div>
               {slice?.items.map((item, index) => (
-                <div className="content_description" key={index}>
-                  <Links isEmail={true} text={item.social_media.data.name} />
-                </div>
+                <>
+                  <div className="content_headline">
+                    <PrismicRichText field={slice?.primary.headline} />
+                  </div>
+                  <div className="content_description" key={index}>
+                    <EmailLink
+                      text={item?.social_media?.data?.name}
+                      showFullEmail={true}
+                    />
+                  </div>
+                </>
               ))}
             </div>
           )}

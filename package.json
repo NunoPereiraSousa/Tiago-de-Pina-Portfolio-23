@@ -11,6 +11,7 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@babel/core": "^7.22.5",
     "@prismicio/client": "^7.0.1",
     "@prismicio/next": "^1.2.1",
     "@prismicio/react": "^2.6.2",
