@@ -5,6 +5,10 @@
   height: 100vh;
   z-index: z("preloader");
   width: 100vw;
+
+  @include media("<=tablet") {
+    padding: 0 2rem;
+  }
 }
 
 .preloader_wrapper {
@@ -33,6 +37,10 @@
   height: 24rem;
   position: relative;
   width: 40rem;
+
+  @include media("<=tablet") {
+    width: 100%;
+  }
 }
 
 .preloader_image {
@@ -48,6 +56,10 @@
 
   max-height: 2.8rem;
   overflow: hidden;
+
+  @include media("<=tablet") {
+    max-height: 1.8rem;
+  }
 }
 
 .preloader_counter_wrapper {

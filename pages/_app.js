@@ -98,7 +98,13 @@ export default function App({ Component, pageProps }) {
     <LocomotiveScrollProvider
       options={{
         smooth: true,
-        // lerp: 0.2,
+        tablet: {
+          smooth: true,
+        },
+        smartphone: {
+          smooth: true,
+        },
+        lerp: 0.2,
         // multiplier: 1,
         // ... all available Locomotive Scroll instance options
       }}

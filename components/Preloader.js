@@ -48,45 +48,48 @@ export default function Preloader({ preloader }) {
       duration: 0.4,
       delay: 0.5,
     });
+    let mm = gsap.matchMedia();
 
-    gsap.fromTo(
-      ".hero_figure",
-      {
-        autoAlpha: 0,
-      },
-      {
-        autoAlpha: 1,
-        stagger: 0.3,
-        ease: Power2.easeOut,
-        duration: 1.5,
-        delay: 0.75,
-      }
-    );
+    mm.add("(min-width: 1024px)", () => {
+      gsap.fromTo(
+        ".hero_figure",
+        {
+          autoAlpha: 0,
+        },
+        {
+          autoAlpha: 1,
+          stagger: 0.3,
+          ease: Power2.easeOut,
+          duration: 1.5,
+          delay: 0.75,
+        }
+      );
 
-    gsap.fromTo(
-      ".line-child",
-      {
-        yPercent: -100,
-      },
-      {
-        yPercent: 0,
-        stagger: 0.01,
-        ease: Power2.easeOut,
-        duration: 0.75,
-        delay: 1.5,
-      }
-    );
+      gsap.fromTo(
+        ".line-child",
+        {
+          yPercent: -100,
+        },
+        {
+          yPercent: 0,
+          stagger: 0.01,
+          ease: Power2.easeOut,
+          duration: 0.75,
+          delay: 1.5,
+        }
+      );
 
-    gsap.fromTo(
-      ".hero_button",
-      { autoAlpha: 0 },
-      {
-        autoAlpha: 1,
-        ease: Power2.easeOut,
-        duration: 0.75,
-        delay: 2.25,
-      }
-    );
+      gsap.fromTo(
+        ".hero_button",
+        { autoAlpha: 0 },
+        {
+          autoAlpha: 1,
+          ease: Power2.easeOut,
+          duration: 0.75,
+          delay: 2.25,
+        }
+      );
+    });
   };
 
   const timeline = useRef(
@@ -100,7 +103,7 @@ export default function Preloader({ preloader }) {
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
       const tl = timeline.current;
-      // scroll?.stop();
+      scroll?.stop();
 
       exploreButton.current.disabled = true;
 
@@ -124,19 +127,6 @@ export default function Preloader({ preloader }) {
       });
 
       if (fontLoaded === true && imagesLoaded === true) {
-        // gsap.to(preloaderEl.current, {
-        //   yPercent: -100,
-        //   ease: Power2.easeOut,
-        //   duration: 0.4,
-        //   delay: 0.5,
-        //   onComplete: () => {
-        //     exploreButton.current.disabled = false;
-        //     setTimeout(() => {
-        //       toggleCompleted(true);
-        //     }, 1000);
-        //   },
-        // });
-
         tl.to(".preloader_container", {
           autoAlpha: 1,
           delay: 0.5,

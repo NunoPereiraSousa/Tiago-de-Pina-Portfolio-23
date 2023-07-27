@@ -30,6 +30,12 @@
   flex-direction: column;
   gap: 3rem;
   margin-bottom: -1rem;
+
+  @include media("<=tablet") {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+  }
 }
 
 .hero_line {
@@ -89,11 +95,13 @@
 
     @include media("<=tablet") {
       margin-bottom: 2.2rem;
+      max-width: none;
     }
-  }
 
-  .hero_description:last-child {
-    // max-width: 32rem;
+    @include media("<phone") {
+      max-width: none;
+      width: 100%;
+    }
   }
 }
 
@@ -117,7 +125,7 @@
 
   @include media("<=tablet") {
     align-self: flex-start;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
   }
 
   @include double-line-animation(
@@ -161,7 +169,6 @@
 }
 
 .hero_description {
-  // text-align: justify;
   margin-top: 1rem;
   width: 100%;
 
