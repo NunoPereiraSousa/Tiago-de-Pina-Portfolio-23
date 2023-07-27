@@ -134,49 +134,49 @@ export default function Preloader({ preloader }) {
           duration: 0.75,
         });
 
-        // tl.set("body", {
-        //   overflow: "hidden",
-        // })
-        //   .set(exploreButton.current, {
-        //     cursor: "default",
-        //   })
-        //   .fromTo(
-        //     bar.current,
-        //     {
-        //       scaleX: 0,
-        //     },
-        //     {
-        //       scaleX: 1,
-        //       duration: 2,
-        //       delay: 1,
-        //       ease: "expo.inOut",
-        //       onComplete: () => {
-        //         tl.to(counterBox.current, {
-        //           yPercent: -100,
-        //           delay: 0.5,
-        //         });
+        tl.set("body", {
+          overflow: "hidden",
+        })
+          .set(exploreButton.current, {
+            cursor: "default",
+          })
+          .fromTo(
+            bar.current,
+            {
+              scaleX: 0,
+            },
+            {
+              scaleX: 1,
+              duration: 2,
+              delay: 1,
+              ease: "expo.inOut",
+              onComplete: () => {
+                tl.to(counterBox.current, {
+                  yPercent: -100,
+                  delay: 0.5,
+                });
 
-        //         tl.to(counterButton.current, {
-        //           yPercent: -100,
-        //           ease: "expo.inOut",
-        //         });
+                tl.to(counterButton.current, {
+                  yPercent: -100,
+                  ease: "expo.inOut",
+                });
 
-        //         /**
-        //          * Button settings
-        //          */
-        //         exploreButton.current.disabled = false;
-        //         tl.set(exploreButton.current, {
-        //           cursor: "pointer",
-        //         });
-        //         scroll?.start();
-        //         scroll?.update();
+                /**
+                 * Button settings
+                 */
+                exploreButton.current.disabled = false;
+                tl.set(exploreButton.current, {
+                  cursor: "pointer",
+                });
+                scroll?.start();
+                scroll?.update();
 
-        //         setTimeout(() => {
-        //           toggleCompleted(true);
-        //         }, 500);
-        //       },
-        //     }
-        //   );
+                setTimeout(() => {
+                  toggleCompleted(true);
+                }, 500);
+              },
+            }
+          );
       }
 
       return () => ctx.revert(); // cleanup
