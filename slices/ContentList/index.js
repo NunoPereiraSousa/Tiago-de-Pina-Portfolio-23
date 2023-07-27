@@ -1,10 +1,11 @@
 import AboutProject from "@/components/AboutProject";
 import Links from "@/components/Typography/Links";
-import { Paragraph } from "@/components/Typography/Paragraph";
+import Paragraph from "@/components/Typography/Paragraph";
 import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
 import { Router, useRouter } from "next/router";
 import Figure from "@/components/Elements/Figure";
 import EmailLink from "@/components/Elements/EmailLink";
+import ParagraphAnimation from "@/components/Animations/ParagraphAnimation";
 
 /**
  * @typedef {import("@prismicio/client").Content.ResumeSlice} ResumeSlice
@@ -66,19 +67,11 @@ const Resume = ({ slice }) => {
                   <div className="content_headline">
                     <PrismicRichText field={item.headline} />
                   </div>
-                  {item.description.length === 1 ? (
-                    <div className="content_description">
-                      <PrismicRichText field={item.description} />
-                    </div>
-                  ) : (
-                    <ul className="content_list">
-                      {item.description.map((desc, i) => (
-                        <li key={i} className="content_list_item">
-                          <Paragraph children={desc.text} />
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <div className="content_description">
+                    {/* {JSON.stringify(item.description)} */}
+                    {/* {JSON.stringify(item)} */}
+                    <PrismicRichText field={item.description} />
+                  </div>
                 </div>
               ))}
             </>

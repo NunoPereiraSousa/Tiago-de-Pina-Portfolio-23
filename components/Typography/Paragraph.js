@@ -1,17 +1,17 @@
 "use client";
 
-import gsap from "gsap-trial";
 import { Power2 } from "gsap";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { SplitText } from "gsap-trial/dist/SplitText";
-import { useRef, useLayoutEffect } from "react";
+import { SplitText } from "gsap/dist/SplitText";
+import { useRef } from "react";
+import useIsomorphicLayoutEffect from "../Animations/useIsomorphicLayoutEffect";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
-export const Paragraph = ({ children }) => {
+export default function Paragraph({ children }) {
   const element = useRef(null);
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
       let childSplit = new SplitText(element.current, {
         type: "lines",
@@ -32,22 +32,25 @@ export const Paragraph = ({ children }) => {
           stagger: 0.04,
           scrollTrigger: {
             trigger: element.current,
-            // markers: true,
-            // start: "top bottom",
           },
           ease: Power2.easeOut,
           duration: 0.75,
           delay: 0.5,
         }
       );
+
+      return () => {
+        childSplit.revert();
+        // parentSplit.revert();
+      }; // context cleanup
     }, element); // <- IMPORTANT! Scopes selector text
 
     return () => ctx.revert(); // cleanup
   }, []);
 
   return (
-    <p ref={element} className="paragraph">
+    <p className="paragraph" ref={element}>
       {children}
     </p>
   );
-};
+}

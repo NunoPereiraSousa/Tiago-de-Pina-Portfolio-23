@@ -6,6 +6,7 @@ import { components } from "../slices";
 import Layout from "@/components/Layout";
 import LastUpdate from "@/components/LastUpdate";
 import { useRouter } from "next/router";
+import Greetings from "@/components/Greetings";
 
 export default function Page({
   navigation,
@@ -21,11 +22,12 @@ export default function Page({
 
   return (
     <Layout navigation={navigation}>
-      <Head>
-        <title>Title</title>
-        <meta name="title" content="Title" />
-        <meta name="description" content="Title" />
-        {/* <link
+      <>
+        <Head>
+          <title>Title</title>
+          <meta name="title" content="Title" />
+          <meta name="description" content="Title" />
+          {/* <link
             rel="apple-touch-icon"
             sizes="57x57"
             href="favicon/apple-icon-57x57.png"
@@ -101,11 +103,13 @@ export default function Page({
             content="favicon/ms-icon-144x144.png"
           />
           <meta name="theme-color" content="#ffffff" /> */}
-      </Head>
-      <SliceZone slices={page.data.slices} components={components} />
+        </Head>
+        {/* <Greetings /> */}
+        <SliceZone slices={page.data.slices} components={components} />
 
-      {router.query.uid === "about" && <LastUpdate date={lastUpdate} />}
-      {/* <Footer footer={footer.data} /> */}
+        {/* {router.query.uid === "about" && <LastUpdate date={lastUpdate} />} */}
+        {/* <Footer footer={footer.data} /> */}
+      </>
     </Layout>
   );
 }

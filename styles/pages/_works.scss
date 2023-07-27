@@ -86,6 +86,7 @@
 .hero_works_figure {
   height: 18.5rem;
   position: relative;
+  margin-top: 4rem;
   width: 100%;
 
   @include media("<phone") {

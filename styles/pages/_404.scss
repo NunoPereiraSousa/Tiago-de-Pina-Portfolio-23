@@ -11,15 +11,36 @@
   width: 100%;
 }
 
+.error_headlines {
+  display: flex;
+  gap: 6rem;
+
+  @include media("<phone") {
+    gap: 2rem;
+  }
+}
+
 .error_headline {
   color: $color-pink;
   white-space: nowrap;
+
+  strong {
+    transform: scale(0.5);
+    vertical-align: middle;
+  }
 }
 
 .error_description {
-  margin: 22rem auto 7rem;
+  margin: 14rem auto 7rem;
   max-width: 48.8rem;
   text-align: center;
+
+  @include media("<phone") {
+    margin: 6rem auto 3rem;
+    padding: 0 2rem;
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .error_button_wrapper {

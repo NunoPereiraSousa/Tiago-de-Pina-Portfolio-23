@@ -1,5 +1,6 @@
 import { PrismicRichText } from "@prismicio/react";
 import Figure from "@/components/Elements/Figure";
+import ParagraphAnimation from "@/components/Animations/ParagraphAnimation";
 
 /**
  * @typedef {import("@prismicio/client").Content.HeroWorksSlice} HeroWorksSlice

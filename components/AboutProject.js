@@ -9,6 +9,8 @@ export default function AboutProject({ name, year, image, description, url }) {
     setActive(!active);
   };
 
+  console.log(url);
+
   return (
     <div className="content_project">
       <div className="content_project_headlines" onClick={onClickHandler}>
@@ -17,6 +19,9 @@ export default function AboutProject({ name, year, image, description, url }) {
             field={name}
             components={{
               heading1: ({ children }) => (
+                <p className="paragraph">{children}</p>
+              ),
+              heading3: ({ children }) => (
                 <p className="paragraph">{children}</p>
               ),
             }}
@@ -66,7 +71,11 @@ export default function AboutProject({ name, year, image, description, url }) {
           <div className="content_project_description">
             <PrismicRichText field={description} />
           </div>
-          <PrismicLink className="content_project_url" href={url}>
+          <PrismicLink
+            className="content_project_url"
+            target="_blank"
+            href={url.url}
+          >
             See live ↗
           </PrismicLink>
         </div>

@@ -5,6 +5,7 @@
   height: 100vh;
   overflow: hidden;
   width: 100vw;
+  padding-bottom: 4rem;
 
   @include media("<=tablet") {
     height: auto;
@@ -25,6 +26,9 @@
 }
 
 .hero_grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   margin-bottom: -1rem;
 }
 
@@ -72,13 +76,16 @@
   }
 
   &:last-child {
+    justify-content: flex-start;
+    gap: 5.6rem;
+
     @include media("<=tablet") {
       justify-content: flex-start;
     }
   }
 
   .hero_description {
-    max-width: 45.9rem;
+    max-width: 50rem;
 
     @include media("<=tablet") {
       margin-bottom: 2.2rem;
@@ -86,7 +93,7 @@
   }
 
   .hero_description:last-child {
-    max-width: 29.9rem;
+    // max-width: 32rem;
   }
 }
 
@@ -102,15 +109,11 @@
   font-weight: 500;
   line-height: 1;
   height: fit-content;
-  margin-bottom: 5rem;
-  padding: 1.2rem 2rem 0.4rem;
+  margin-bottom: 2rem;
+  padding: 1.2rem 2rem;
   text-transform: uppercase;
   white-space: nowrap;
   width: fit-content;
-
-  &:hover {
-    animation-play-state: paused;
-  }
 
   @include media("<=tablet") {
     align-self: flex-start;
@@ -168,5 +171,6 @@
 
   strong {
     color: $color-pink;
+    display: inline-flex;
   }
 }

@@ -27,11 +27,12 @@ export default function Page({
 }) {
   return (
     <Layout navigation={navigation}>
-      <Head>
-        <title>Title</title>
-        <meta name="title" content="Title" />
-        <meta name="description" content="Title" />
-        {/* <link
+      <>
+        <Head>
+          <title>Title</title>
+          <meta name="title" content="Title" />
+          <meta name="description" content="Title" />
+          {/* <link
           rel="apple-touch-icon"
           sizes="57x57"
           href="favicon/apple-icon-57x57.png"
@@ -107,11 +108,11 @@ export default function Page({
           content="favicon/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" /> */}
-      </Head>
-      {/* <Preloader preloader={preloader} /> */}
-      <SliceZone slices={page.data.slices} components={components} />
-      {/* <Footer footer={footer.data} /> */}
-      <Script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js" />
+        </Head>
+        {/* <Preloader preloader={preloader} /> */}
+        <SliceZone slices={page.data.slices} components={components} />
+        {/* <Footer footer={footer.data} /> */}
+      </>
     </Layout>
   );
 }

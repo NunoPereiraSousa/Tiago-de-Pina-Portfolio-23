@@ -27,7 +27,7 @@ export default function Figure({ figureClassName, imageClassName, image }) {
             // markers: true,
           },
           duration: 1.5,
-          delay: 0.3,
+          delay: 0.5,
         }
       );
 

@@ -1,13 +1,22 @@
-"use client";
-
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { gsap } from "gsap";
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Power2 } from "gsap";
 import Figure from "./Elements/Figure";
+import FontFaceObserver from "fontfaceobserver";
+import useIsomorphicLayoutEffect from "./Animations/useIsomorphicLayoutEffect";
+import { useLocomotiveScroll } from "react-locomotive-scroll";
+import AnimationsContext from "@/context/AnimationsContext";
 
-const Preloader = ({ preloader }) => {
+let loadingImages = require("imagesloaded");
+
+export default function Preloader({ preloader }) {
   const [percentage, setPercentage] = useState(0);
+
+  const [fontLoaded, setFontLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const { scroll } = useLocomotiveScroll();
+  const { toggleCompleted } = useContext(AnimationsContext);
 
   const preloaderEl = useRef(null);
   const counterBox = useRef(null);
@@ -88,60 +97,101 @@ const Preloader = ({ preloader }) => {
     })
   );
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
       const tl = timeline.current;
+      // scroll?.stop();
 
       exploreButton.current.disabled = true;
 
-      tl.to(".preloader_container", {
-        autoAlpha: 1,
-        delay: 0.5,
-        ease: Power2.easeOut,
-        duration: 0.75,
+      let font1 = new FontFaceObserver("Mango Grotesque", {
+        weight: 500,
+        weight: 300,
+      });
+      let font2 = new FontFaceObserver("Neue Haas Grotesk Text Pro", {
+        weight: 400,
       });
 
-      tl.set("body", {
-        overflow: "hidden",
-      })
-        .set(exploreButton.current, {
-          cursor: "default",
+      Promise.all([font1.load(), font2.load()]).then(function (e) {
+        console.log(e, "Family A & B have loaded");
+        setFontLoaded(true);
+      });
+
+      let imgLoad = loadingImages(document.querySelectorAll("img"));
+
+      imgLoad.on("done", function (instance) {
+        setImagesLoaded(true);
+      });
+
+      if (fontLoaded === true && imagesLoaded === true) {
+        // gsap.to(preloaderEl.current, {
+        //   yPercent: -100,
+        //   ease: Power2.easeOut,
+        //   duration: 0.4,
+        //   delay: 0.5,
+        //   onComplete: () => {
+        //     exploreButton.current.disabled = false;
+        //     setTimeout(() => {
+        //       toggleCompleted(true);
+        //     }, 1000);
+        //   },
+        // });
+
+        tl.to(".preloader_container", {
+          autoAlpha: 1,
+          delay: 0.5,
+          ease: Power2.easeOut,
+          duration: 0.75,
+        });
+
+        tl.set("body", {
+          overflow: "hidden",
         })
-        .fromTo(
-          bar.current,
-          {
-            scaleX: 0,
-          },
-          {
-            scaleX: 1,
-            duration: 2,
-            delay: 1,
-            ease: "expo.inOut",
-            onComplete: () => {
-              tl.to(counterBox.current, {
-                yPercent: -100,
-                delay: 0.5,
-              });
-
-              tl.to(counterButton.current, {
-                yPercent: -100,
-                ease: "expo.inOut",
-              });
-
-              /**
-               * Button settings
-               */
-              exploreButton.current.disabled = false;
-              tl.set(exploreButton.current, {
-                cursor: "pointer",
-              });
+          .set(exploreButton.current, {
+            cursor: "default",
+          })
+          .fromTo(
+            bar.current,
+            {
+              scaleX: 0,
             },
-          }
-        );
+            {
+              scaleX: 1,
+              duration: 2,
+              delay: 1,
+              ease: "expo.inOut",
+              onComplete: () => {
+                tl.to(counterBox.current, {
+                  yPercent: -100,
+                  delay: 0.5,
+                });
+
+                tl.to(counterButton.current, {
+                  yPercent: -100,
+                  ease: "expo.inOut",
+                });
+
+                /**
+                 * Button settings
+                 */
+                exploreButton.current.disabled = false;
+                tl.set(exploreButton.current, {
+                  cursor: "pointer",
+                });
+                scroll?.start();
+                scroll?.update();
+
+                setTimeout(() => {
+                  toggleCompleted(true);
+                }, 500);
+              },
+            }
+          );
+      }
 
       return () => ctx.revert(); // cleanup
     }, preloaderEl);
-  }, []);
+  }, [fontLoaded, imagesLoaded]);
 
   return (
     <div className="preloader" ref={preloaderEl}>
@@ -186,6 +236,4 @@ const Preloader = ({ preloader }) => {
       </div>
     </div>
   );
-};
-
-export default Preloader;
+}

@@ -1,14 +1,15 @@
 "use client";
 
 import { PrismicLink, PrismicText } from "@prismicio/react";
-import gsap from "gsap-trial";
 import { Power2 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { SplitText } from "gsap-trial/dist/SplitText";
+import { SplitText } from "gsap/dist/SplitText";
 import { useRef, useLayoutEffect } from "react";
+import { gsap } from "gsap";
 
 export default function Links({ className, url, text }) {
   const element = useRef(null);
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -30,6 +31,9 @@ export default function Links({ className, url, text }) {
           yPercent: 0,
           stagger: 0.04,
           ease: Power2.easeOut,
+          scrollTrigger: {
+            trigger: element.current,
+          },
           duration: 0.75,
           delay: 0.5,
         }

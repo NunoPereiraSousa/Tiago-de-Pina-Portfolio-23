@@ -3,12 +3,12 @@
   font-family: $font-heading;
   font-style: normal;
   font-weight: 300;
-  line-height: 1;
+  line-height: 0.8;
   text-transform: uppercase;
 
   @include media("<=tablet") {
     font-size: 16rem;
-    line-height: 90%;
+    line-height: 1;
   }
 
   @include media("<phone") {

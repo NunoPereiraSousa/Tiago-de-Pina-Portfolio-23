@@ -27,12 +27,13 @@ export default function Page({
   metaDescription,
 }) {
   return (
-    <Layout>
-      <Head>
-        <title>Title</title>
-        <meta name="title" content="Title" />
-        <meta name="description" content="Title" />
-        {/* <link
+    <Layout navigation={navigation}>
+      <>
+        <Head>
+          <title>Title</title>
+          <meta name="title" content="Title" />
+          <meta name="description" content="Title" />
+          {/* <link
           rel="apple-touch-icon"
           sizes="57x57"
           href="favicon/apple-icon-57x57.png"
@@ -108,8 +109,9 @@ export default function Page({
           content="favicon/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" /> */}
-      </Head>
-      <SliceZone slices={page.data.slices} components={components} />
+        </Head>
+        <SliceZone slices={page.data.slices} components={components} />
+      </>
     </Layout>
   );
 }
@@ -117,10 +119,14 @@ export default function Page({
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
+  const navigation = await client.getSingle("navigation", {
+    fetchLinks: "social_media.name, social_media.link, contacts.name",
+  });
   const page = await client.getSingle("404");
 
   return {
     props: {
+      navigation,
       page,
     },
   };

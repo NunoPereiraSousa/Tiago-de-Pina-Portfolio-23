@@ -13,21 +13,35 @@
   }
 
   &.mobile-navigation {
-    background-color: $color-black;
+    // background-color: $color-black;
     height: 100vh;
     mix-blend-mode: normal;
     padding: 8rem 2rem 4rem;
     width: 100vw;
 
     display: none;
+    z-index: z("mobile-navigation");
 
     flex-direction: column;
     justify-content: space-between;
-    z-index: z("mobile-navigation");
 
     @include media("<=tablet") {
       display: flex;
     }
+  }
+}
+
+.navigation_show {
+  height: 100%;
+  z-index: z("mobile-navigation");
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .navigation_logo {
+    color: $color-black;
   }
 }
 
@@ -60,6 +74,15 @@
   @extend %center-between;
 
   height: fit-content;
+  width: 100%;
+}
+
+.navigation_background {
+  @extend %position-fixed;
+
+  background-color: $color-black;
+  height: 100%;
+  z-index: -1;
   width: 100%;
 }
 
@@ -99,6 +122,7 @@
   .navigation_link {
     @extend %heading-220;
 
+    color: $color-white;
     display: block;
     margin: auto;
     text-align: center;

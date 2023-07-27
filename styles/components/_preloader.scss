@@ -21,8 +21,8 @@
   gap: 6.6rem;
   max-width: 74.7rem;
 
-  opacity: 0;
-  visibility: hidden;
+  // opacity: 0;
+  // visibility: hidden;
 }
 
 .preloader_description {
@@ -59,7 +59,6 @@
 
 .preloader_counter_init {
   display: flex;
-  min-width: 5.4rem;
 }
 
 .preloader_counter_number {
@@ -91,4 +90,49 @@
   // &:hover {
   //   color: $color-pink;
   // }
+}
+
+.grain {
+  @extend %position-fixed;
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: z("grain");
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    animation: grain 8s steps(10) infinite;
+    background-image: url("../../public/grain.png");
+    opacity: 0.03;
+    height: 300%;
+    width: 300%;
+    position: fixed;
+    top: -100%;
+    left: -50%;
+    overflow: hidden;
+  }
+}
+
+.greetings {
+  @extend %position-fixed;
+
+  background-color: $color-white;
+  height: 100vh;
+  z-index: z("preloader");
+  width: 100vw;
+}
+
+.greetings_wrapper {
+  @extend %max-width;
+  @extend %flex-center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.greetings_description {
+  color: $color-black;
+  text-align: center;
 }

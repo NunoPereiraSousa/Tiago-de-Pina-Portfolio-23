@@ -5,8 +5,7 @@ import Link from "next/link";
 import { PrismicLink, PrismicProvider } from "@prismicio/react";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName, linkResolver } from "../prismicio";
-import { Paragraph } from "../components/Typography/Paragraph";
-import { Heading } from "../components/Typography/Heading";
+import Heading from "@/components/Typography/Heading";
 import { useRef } from "react";
 import {
   LocomotiveScrollProvider,
@@ -17,9 +16,13 @@ import Grain from "@/components/Grain";
 import ScrollTriggerProxy from "@/components/ScrollTriggerProxy";
 import { SwitchTransition, Transition } from "react-transition-group";
 import gsap from "gsap";
+import Paragraph from "@/components/Typography/Paragraph";
+import TransitionComponent from "../components/Animations/Transition";
+import { TransitionProvider } from "../context/TransitionContext";
+import { AnimationsProvider } from "@/context/AnimationsContext";
 
 const richTextComponents = {
-  paragraph: ({ children }) => <Paragraph size="sm">{children}</Paragraph>,
+  paragraph: ({ children }) => <Paragraph>{children}</Paragraph>,
   heading1: ({ children }) => (
     <Heading as="h1" size="xxl">
       {children}
@@ -51,9 +54,17 @@ const richTextComponents = {
     </Heading>
   ),
   oList: ({ children }) => <ol className="">{children}</ol>,
-  oListItem: ({ children }) => <li className="">{children}</li>,
-  list: ({ children }) => <ul className="">{children}</ul>,
-  listItem: ({ children }) => <li className="">{children}</li>,
+  oListItem: ({ children }) => (
+    <li>
+      <Paragraph>{children}</Paragraph>
+    </li>
+  ),
+  list: ({ children }) => <ul>{children}</ul>,
+  listItem: ({ children }) => (
+    <li>
+      <Paragraph>{children}</Paragraph>
+    </li>
+  ),
   preformatted: ({ children }) => (
     <pre className="">
       <code>{children}</code>
@@ -83,51 +94,6 @@ export default function App({ Component, pageProps }) {
   const { scroll } = useLocomotiveScroll();
   const { asPath } = useRouter(); // With next/router
 
-  //   useEffect(() => {
-  //     gsap.to(element.current, {
-  //       opacity: 1,
-  //       ease: "expo.out",
-  //       duration: 2,
-  //       delay: 0.35,
-  //     });
-  //   }, []);
-  const router = useRouter();
-
-  const onPageEnter = (node) => {
-    gsap.fromTo(
-      "#sticky",
-      {
-        y: 100,
-        autoAlpha: 0,
-        ease: "expo.out",
-      },
-      {
-        y: 0,
-        autoAlpha: 1,
-        duration: 1,
-        ease: "expo.out",
-        delay: 0.5,
-      }
-    );
-  };
-
-  const onPageExit = (node) => {
-    gsap.fromTo(
-      "#sticky",
-      {
-        y: 0,
-        autoAlpha: 1,
-        ease: "expo.out",
-      },
-      {
-        y: -100,
-        autoAlpha: 0,
-        duration: 1,
-        ease: "expo.inOut",
-      }
-    );
-  };
-
   return (
     <LocomotiveScrollProvider
       options={{
@@ -146,35 +112,32 @@ export default function App({ Component, pageProps }) {
       location={asPath}
       containerRef={containerRef}
       onLocationChange={(scroll) =>
-        scroll.scrollTo(0, { duration: 0, disableLerp: true })
-      } // If you want to reset the scroll position to 0 for example
-      onUpdate={() => console.log("Updated, but not on location change!")} // Will trigger on
+        setTimeout(() => {
+          scroll.scrollTo(0, { duration: 0, disableLerp: true });
+        }, 500)
+      }
     >
       <ScrollTriggerProxy />
-      <main data-scroll-container ref={containerRef} id="sticky">
-        <Grain />
-        <PrismicProvider
-          linkResolver={linkResolver}
-          internalLinkComponent={NextLinkShim}
-          richTextComponents={richTextComponents}
-        >
-          <PrismicPreview repositoryName={repositoryName}>
-            <SwitchTransition>
-              <Transition
-                key={router.asPath} // our route as a key
-                timeout={500}
-                in={true}
-                onEnter={onPageEnter} // our enter animation
-                onExit={onPageExit} // our exit animation
-                // mountOnEnter={true}
-                // unmountOnExit={true}
-              >
-                <Component {...pageProps} />
-              </Transition>
-            </SwitchTransition>
-          </PrismicPreview>
-        </PrismicProvider>
-      </main>
+      <AnimationsProvider>
+        <main data-scroll-container ref={containerRef} id="sticky">
+          <Grain />
+          <PrismicProvider
+            linkResolver={linkResolver}
+            internalLinkComponent={NextLinkShim}
+            richTextComponents={richTextComponents}
+          >
+            <PrismicPreview repositoryName={repositoryName}>
+              <TransitionProvider>
+                <div className="content-container">
+                  <TransitionComponent>
+                    <Component {...pageProps} />
+                  </TransitionComponent>
+                </div>
+              </TransitionProvider>
+            </PrismicPreview>
+          </PrismicProvider>
+        </main>
+      </AnimationsProvider>
     </LocomotiveScrollProvider>
   );
 }

@@ -1,21 +1,23 @@
 "use client";
 
 import { PrismicLink, PrismicText } from "@prismicio/react";
-import gsap from "gsap-trial";
 import { Power2 } from "gsap";
-import { SplitText } from "gsap-trial/dist/SplitText";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { SplitText } from "gsap/dist/SplitText";
 import { useRef, useLayoutEffect } from "react";
+import { gsap } from "gsap";
 
 export default function EmailLink({ text, showFullEmail = true }) {
   const element = useRef(null);
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      let childSplit = new SplitText(element.current, {
+      let childSplit = SplitText.create(element.current, {
         type: "lines",
         linesClass: "line-child",
       });
-      let parentSplit = new SplitText(element.current, {
+      let parentSplit = SplitText.create(element.current, {
         type: "lines",
         linesClass: "line-parent",
       });
@@ -28,11 +30,19 @@ export default function EmailLink({ text, showFullEmail = true }) {
         {
           yPercent: 0,
           stagger: 0.04,
+          scrollTrigger: {
+            trigger: element.current,
+          },
           ease: Power2.easeOut,
           duration: 0.75,
           delay: 0.5,
         }
       );
+
+      return () => {
+        childSplit.revert();
+        parentSplit.revert();
+      }; // context cleanup
     }, element); // <- IMPORTANT! Scopes selector text
 
     return () => ctx.revert(); // cleanup

@@ -1,7 +1,10 @@
 import DoubleText from "@/components/Animations/DoubleText";
 import Figure from "@/components/Elements/Figure";
 import Links from "@/components/Typography/Links";
-import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
+import { gsap } from "gsap";
+import { useRef } from "react";
+import useIsomorphicLayoutEffect from "@/components/Animations/useIsomorphicLayoutEffect";
 
 /**
  * @typedef {import("@prismicio/client").Content.HeroHomepageSlice} HeroHomepageSlice
@@ -9,12 +12,38 @@ import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
  * @param {HeroHomepageProps}
  */
 const HeroHomepage = ({ slice }) => {
+  const element = useRef(null);
+
+  useIsomorphicLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".hero_button",
+        {
+          autoAlpha: 0,
+          animationPlayState: "paused",
+        },
+        {
+          autoAlpha: 1,
+          delay: 1,
+          duration: 1,
+          animationPlayState: "running",
+          ease: "expo.out",
+        }
+      );
+
+      return () => {};
+    }, element);
+
+    return () => ctx.revert(); // cleanup
+  });
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="hero"
       data-scroll-section
+      ref={element}
     >
       <div className="hero_wrapper">
         <div className="hero_grid">
@@ -61,12 +90,9 @@ const HeroHomepage = ({ slice }) => {
             <div className="hero_description">
               <PrismicRichText field={slice?.primary.description} />
             </div>
-            <div className="hero_headline">
-              <PrismicRichText field={slice?.primary.headline_5} />
-            </div>
-            <div className="hero_description">
+            {/* <div className="hero_description">
               <PrismicRichText field={slice?.primary.description_2} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

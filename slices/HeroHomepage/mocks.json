@@ -81,19 +81,7 @@
 					}
 				]
 			},
-			"description_2": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Cupidatat qui veniam mollit adipisicing voluptate labore minim fugiat ea. Eiusmod adipisicing in nisi nulla ad ipsum aute occaecat eu cillum nulla eiusmod nostrud nostrud eu."
-						}
-					}
-				]
-			},
 			"image_2": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
@@ -111,10 +99,12 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"image_3": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
@@ -132,6 +122,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"button_label": {
@@ -151,17 +144,6 @@
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com"
 				}
-			},
-			"headline_5": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Do minim voluptate laboris voluptate dolor reprehenderit sit labore. Sint minim culpa sit amet ut exercitation non laborum culpa."
-						}
-					}
-				]
 			}
 		},
 		"items": []

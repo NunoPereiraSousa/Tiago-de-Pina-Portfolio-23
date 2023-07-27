@@ -1,5 +1,5 @@
 .content {
-  padding: 0 8rem 0 37.8rem;
+  padding: 0 8rem 8rem 37.8rem;
 
   @include media("<=tablet") {
     padding: 0 2rem 0 20rem;
@@ -147,7 +147,7 @@
 }
 
 .content_project_figure {
-  height: 60rem;
+  height: 8rem;
   position: relative;
   width: 57.4rem;
 

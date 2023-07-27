@@ -405,17 +405,6 @@ interface ProjectDocumentData {
    */
   content: prismic.GroupField<Simplify<ProjectDocumentDataContentItem>>;
   /**
-   * Project Button Label field in *Project*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.project_button_label
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  project_button_label: prismic.RichTextField;
-  /**
    * Project URL field in *Project*
    *
    * - **Field Type**: Link
@@ -781,26 +770,6 @@ interface HeroHomepageSliceDefaultPrimary {
    *
    */
   description: prismic.RichTextField;
-  /**
-   * Headline 5  field in *HeroHomepage → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_homepage.primary.headline_5
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  headline_5: prismic.RichTextField;
-  /**
-   * Description 2 field in *HeroHomepage → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_homepage.primary.description_2
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  description_2: prismic.RichTextField;
 }
 /**
  * Default variation for HeroHomepage Slice

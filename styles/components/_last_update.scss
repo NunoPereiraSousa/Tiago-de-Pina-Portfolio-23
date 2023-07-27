@@ -1,6 +1,7 @@
 .last_update {
   padding-left: 37.8rem;
-  margin: 14rem 0 6rem;
+  margin: 14rem 0 0;
+  padding-bottom: 10rem;
 
   @include media("<=tablet") {
     padding-left: 20rem;

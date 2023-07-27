@@ -42,22 +42,23 @@ input {
 .line-parent {
   vertical-align: top;
   display: inline-block;
+  white-space: pre-line;
 }
 
-.font-semibold {
+strong,
+em {
+  display: inline-block;
 }
 
-.line-parent,
-.font-semibold {
+.line-parent {
   overflow: hidden;
-  height: inherit;
 }
 
 .line-child {
   overflow: hidden;
-  height: inherit;
   display: inline-block;
   vertical-align: inherit;
+  white-space: pre-line;
 }
 
 @keyframes grain {
@@ -91,28 +92,6 @@ input {
   }
   90% {
     transform: translate(-5%, 5%);
-  }
-}
-
-.grain {
-  @extend %position-fixed;
-
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: z("grain");
-
-  &::after {
-    content: "";
-    animation: grain 8s steps(10) infinite;
-    background-image: url("../../public/grain.png");
-    opacity: 0.05;
-    height: 300%;
-    width: 300%;
-    position: fixed;
-    top: -100%;
-    left: -50%;
-    overflow: hidden;
   }
 }
 

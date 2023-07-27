@@ -47,7 +47,7 @@ export default function LastUpdate({ date }) {
       ? `0${new Date(date).getMinutes()}`
       : new Date(date).getMinutes();
   return (
-    <section className="last_update">
+    <section className="last_update" data-scroll-section>
       <div className="last_update_wrapper">
         <p className="paragraph">
           Last update: {getMonth()} {getDay()}, {getYear()} -- {getHours()}:
