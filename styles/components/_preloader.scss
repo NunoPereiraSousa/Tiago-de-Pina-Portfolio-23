@@ -89,6 +89,10 @@
 .preloader_counter_end {
   min-width: 5.4rem;
   text-align: right;
+
+  @include media("<phone") {
+    min-width: 4rem;
+  }
 }
 
 .preloader_button_wrapper {
