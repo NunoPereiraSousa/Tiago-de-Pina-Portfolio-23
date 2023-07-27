@@ -48,7 +48,7 @@ export default function MobileNavigationLink({ link, name, isMobile }) {
         {
           yPercent: 0,
           stagger: 0.03,
-          duration: 0.75,
+          duration: 0.5,
         },
         "-=0.25"
       );
