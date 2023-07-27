@@ -36,7 +36,7 @@ export default function MobileNavigationLink({ link, name, isMobile }) {
           scaleX: 1,
           transformOrigin: "0 0",
           duration: 0.4,
-          delay: 0.5,
+          delay: 1,
         }
       );
 
@@ -48,9 +48,9 @@ export default function MobileNavigationLink({ link, name, isMobile }) {
         {
           yPercent: 0,
           stagger: 0.03,
-          duration: 0.5,
+          duration: 0.75,
         },
-        "-=0.1"
+        "-=0.25"
       );
     }, element);
 

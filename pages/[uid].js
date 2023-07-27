@@ -24,10 +24,10 @@ export default function Page({
     <Layout navigation={navigation}>
       <>
         <Head>
-          <title>Title</title>
-          <meta name="title" content="Title" />
-          <meta name="description" content="Title" />
-          {/* <link
+          <title>{metaTitle}</title>
+          <meta name="title" content={metaTitle} />
+          <meta name="description" content={metaDescription} />
+          <link
             rel="apple-touch-icon"
             sizes="57x57"
             href="favicon/apple-icon-57x57.png"
@@ -97,18 +97,14 @@ export default function Page({
             href="favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="favicon/manifest.json" />
-          <meta name="msapplication-TileColor" content="#ffffff" />
+          <meta name="msapplication-TileColor" content="#0c0c0c" />
           <meta
             name="msapplication-TileImage"
             content="favicon/ms-icon-144x144.png"
           />
-          <meta name="theme-color" content="#ffffff" /> */}
+          <meta name="theme-color" content="#0c0c0c" />
         </Head>
-        {/* <Greetings /> */}
         <SliceZone slices={page.data.slices} components={components} />
-
-        {/* {router.query.uid === "about" && <LastUpdate date={lastUpdate} />} */}
-        {/* <Footer footer={footer.data} /> */}
       </>
     </Layout>
   );
@@ -118,8 +114,7 @@ export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
   const navigation = await client.getSingle("navigation", {
-    fetchLinks:
-      "social_media.name, social_media.link, contacts.name, contacts.link",
+    fetchLinks: "social_media.name, social_media.link, contacts.name",
   });
   const page = await client.getByUID("page", params.uid, {
     fetchLinks:
@@ -130,7 +125,8 @@ export async function getStaticProps({ params, previewData }) {
     props: {
       navigation,
       page,
-      lastUpdate: page.last_publication_date,
+      metaTitle: page.data.meta_title,
+      metaDescription: page.data.meta_description,
     },
   };
 }

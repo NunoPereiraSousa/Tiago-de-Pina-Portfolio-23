@@ -47,23 +47,14 @@ export default function MobileNavigation({ navigation }) {
     });
 
     if (navbarOpened === false) {
+      openTl.to(".mobile-navigation", {
+        height: "100vh",
+      });
+
       openTl.to(".navigation_background", {
         scaleY: 1,
         duration: 0.6,
       });
-      // openTl.fromTo(
-      //   childSplit.chars,
-      //   {
-      //     yPercent: -100,
-      //   },
-      //   {
-      //     yPercent: 0,
-      //     stagger: 0.015,
-      //     ease: Power2.easeOut,
-      //     duration: 0.75,
-      //     delay: 0.5,
-      //   }
-      // );
 
       setNavbarOpened(true);
     } else {
@@ -71,10 +62,11 @@ export default function MobileNavigation({ navigation }) {
         scaleY: 0,
         duration: 0.6,
       });
+      openTl.to(".mobile-navigation", {
+        height: "fit-content",
+      });
       setNavbarOpened(false);
     }
-
-    // navbarOpened === false ? setNavbarOpened(true) : setNavbarOpened(false);
   };
 
   return (
@@ -144,14 +136,14 @@ export default function MobileNavigation({ navigation }) {
                         {s.social_media.type === "contacts" ? (
                           <EmailLink
                             key={index}
-                            text={s.social_media.data.name[0].text}
+                            text={s.social_media.data?.name[0].text}
                             showFullEmail={false}
                           />
                         ) : (
                           <Links
                             key={index}
-                            url={s.social_media.data.link.url}
-                            text={s.social_media.data.name}
+                            url={s.social_media.data?.link.url}
+                            text={s.social_media.data?.name}
                             className="navigation_social_media_link"
                           />
                         )}

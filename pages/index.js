@@ -113,8 +113,6 @@ export default function Page({
         </Head>
         <Preloader preloader={preloader} />
         <SliceZone slices={page.data.slices} components={components} />
-        {/* <Footer footer={footer.data} /> */}
-        {/* <Script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js" /> */}
       </>
     </Layout>
   );
@@ -128,23 +126,12 @@ export async function getStaticProps({ params, previewData }) {
   });
   const page = await client.getSingle("homepage");
   const preloader = await client.getSingle("preloader");
-  /* 
-    {
-    fetchLinks:
-      "article_post.headline, article_post.description, article_post.image, article_post.date",
-  }
-  */
-  //   const footer = await client.getSingle("footer");
-  //   const navigation = await client.getSingle("navigation");
-  //   const menus = await client.getSingle("menus");
 
   return {
     props: {
       navigation,
-      //   menus,
       page,
       preloader,
-      //   footer,
       metaTitle: page.data.meta_title,
       metaDescription: page.data.meta_description,
     },

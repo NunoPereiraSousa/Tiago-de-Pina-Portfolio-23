@@ -14,10 +14,10 @@
 
   &.mobile-navigation {
     // background-color: $color-black;
-    height: 100vh;
+    // height: 0;
     mix-blend-mode: normal;
     padding: 4rem 2rem 4rem;
-    pointer-events: none;
+    // pointer-events: none;
     width: 100vw;
 
     display: none;
@@ -82,7 +82,7 @@
   @extend %position-fixed;
 
   background-color: $color-black;
-  height: 100%;
+  height: 100vh;
   z-index: -1;
   width: 100%;
 }
