@@ -17,6 +17,7 @@
     "@prismicio/react": "^2.6.2",
     "clsx": "^1.2.1",
     "concurrently": "^8.1.0",
+    "dotenv": "^16.3.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "fontfaceobserver": "^2.3.0",
