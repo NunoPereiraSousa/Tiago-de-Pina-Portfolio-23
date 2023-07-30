@@ -62,7 +62,12 @@
       },
       "project_url": {
         "type": "Link",
-        "config": { "label": "Project URL", "placeholder": "", "select": null }
+        "config": {
+          "label": "Project URL",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
       },
       "project_image": {
         "type": "Image",
