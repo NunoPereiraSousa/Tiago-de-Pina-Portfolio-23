@@ -27,7 +27,12 @@
       },
       "link": {
         "type": "Link",
-        "config": { "label": "Link", "placeholder": "", "select": null }
+        "config": {
+          "label": "Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
       }
     }
   }
