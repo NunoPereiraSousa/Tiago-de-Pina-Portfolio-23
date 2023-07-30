@@ -23,7 +23,7 @@ export default function Page({ navigation, page, metaTitle, metaDescription }) {
         <Head>
           <title>{metaTitle}</title>
           <meta name="title" content={metaTitle} />
-          <meta name="description" content={metaDescription} />
+          <meta name="description" content={metaDescription[0].text} />
           <link
             rel="apple-touch-icon"
             sizes="57x57"

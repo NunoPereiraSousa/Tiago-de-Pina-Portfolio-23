@@ -42,8 +42,8 @@ export default function EmailLink({ text, showFullEmail = true }) {
       return () => {
         childSplit.revert();
         parentSplit.revert();
-      }; // context cleanup
-    }, element); // <- IMPORTANT! Scopes selector text
+      };
+    }, element);
 
     return () => ctx.revert(); // cleanup
   }, []);

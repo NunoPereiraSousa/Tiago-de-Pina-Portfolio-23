@@ -1,7 +1,6 @@
 import DoubleText from "@/components/Animations/DoubleText";
 import Figure from "@/components/Elements/Figure";
-import Links from "@/components/Typography/Links";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import { gsap } from "gsap";
 import { useRef } from "react";
 import useIsomorphicLayoutEffect from "@/components/Animations/useIsomorphicLayoutEffect";
@@ -79,7 +78,12 @@ const HeroHomepage = ({ slice }) => {
 
             <div className="hero_button">
               <DoubleText>
-                <Links isEmail={true} text={slice?.primary.button_label} />
+                <PrismicLink
+                  className="navigation_social_media_link"
+                  href={`mailto:tiagopina20014@gmail.com`}
+                >
+                  Open to work
+                </PrismicLink>
               </DoubleText>
             </div>
           </div>
@@ -90,9 +94,6 @@ const HeroHomepage = ({ slice }) => {
             <div className="hero_description">
               <PrismicRichText field={slice?.primary.description} />
             </div>
-            {/* <div className="hero_description">
-              <PrismicRichText field={slice?.primary.description_2} />
-            </div> */}
           </div>
         </div>
       </div>

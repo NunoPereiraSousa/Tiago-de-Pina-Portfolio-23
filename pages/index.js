@@ -3,27 +3,12 @@ import { SliceZone } from "@prismicio/react";
 import Head from "next/head";
 import { components } from "../slices";
 import Layout from "@/components/Layout";
-import Script from "next/script";
 import Preloader from "@/components/Preloader";
-import { PreloaderProvider } from "@/context/PreloaderContext";
-// import Footer from "@/components/Footer";
-
-// PASS NAVIGATION INSIDE LAYOUT COMPONENT navigation={navigation} menus={menus}
-/*
-  navigation,
-  menus,
-  page,
-  footer,
-  metaTitle,
-  metaDescription,
-*/
 
 export default function Page({
   navigation,
-  menus,
   page,
   preloader,
-  footer,
   metaTitle,
   metaDescription,
 }) {
@@ -33,7 +18,7 @@ export default function Page({
         <Head>
           <title>{metaTitle}</title>
           <meta name="title" content={metaTitle} />
-          <meta name="description" content={metaDescription} />
+          <meta name="description" content={metaDescription[0].text} />
           <link
             rel="apple-touch-icon"
             sizes="57x57"
